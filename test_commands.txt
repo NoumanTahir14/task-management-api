@@ -1,0 +1,16 @@
+# Run the server first:
+uvicorn app:app --reload --port 3000
+
+# Then test:
+
+curl -i http://localhost:3000/tasks
+
+curl -i http://localhost:3000/tasks/999
+
+curl -i -X POST http://localhost:3000/tasks -H "Content-Type: application/json" -d "{"title":"Study FastAPI","done":false}"
+
+curl -i -X PUT http://localhost:3000/tasks/1 -H "Content-Type: application/json" -d "{"title":"Learn PostgreSQL","done":true}"
+
+curl -i -X DELETE http://localhost:3000/tasks/1
+
+curl -i http://localhost:3000/health
